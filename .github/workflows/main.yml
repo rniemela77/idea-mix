@@ -3,11 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # or 'master' if that's your default branch
+      - main  # or your primary development branch
 
 jobs:
-  build:
-    name: Build and Deploy
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +16,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '14'  # or the version your project uses
+        node-version: '14'  # Adjust to your Node.js version
 
     - name: Install dependencies
       run: npm install
@@ -28,7 +27,7 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_branch: gh-pages  # the branch to deploy to
-        folder: dist  # the folder containing the built files
+        publish_branch: gh-pages  # Branch to deploy to
+        publish_dir: dist  # Directory containing built files
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
