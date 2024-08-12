@@ -26,10 +26,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 body {
-
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: rgba(49, 160, 141, 0.1);
 }
 * {
